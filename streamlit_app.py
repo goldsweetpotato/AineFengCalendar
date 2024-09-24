@@ -31,16 +31,9 @@ selected_month = st.sidebar.selectbox('Month', list(calendar.month_name)[1:], in
 # Display the calendar for the selected year and month
 display_calendar(selected_year, list(calendar.month_name).index(selected_month))
 
-#Build a bot that mirrors your input
+#chat element
+
 import streamlit as st
 
-st.title("Echo Bot")
-
-# Initialize chat history
-if "messages" not in st.session_state:
-    st.session_state.messages = []
-
-# Display chat messages from history on app rerun
-for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
+with st.chat_message("user"):
+    st.write("Hello 👋")
