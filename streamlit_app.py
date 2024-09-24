@@ -37,3 +37,8 @@ import streamlit as st
 
 with st.chat_message("user"):
     st.write("Hello 👋")
+
+st.title("🎈 hello world")
+st.write(
+    "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
+)
