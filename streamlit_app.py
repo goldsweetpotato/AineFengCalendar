@@ -35,10 +35,6 @@ display_calendar(selected_year, list(calendar.month_name).index(selected_month))
 
 import streamlit as st
 
-with st.chat_message("user"):
-    st.write("Hello 👋")
-
-st.title("🎈 hello world")
-st.write(
-    "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
-)
+prompt = st.chat_input("Say something")
+if prompt:
+    st.write(f"User has sent the following prompt: {prompt}")
