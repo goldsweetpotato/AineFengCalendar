@@ -31,10 +31,9 @@ selected_month = st.sidebar.selectbox('Month', list(calendar.month_name)[1:], in
 # Display the calendar for the selected year and month
 display_calendar(selected_year, list(calendar.month_name).index(selected_month))
 
-#chat element
+#build chatgpt app
 
-import streamlit as st
+pip install openai streamlit
 
-prompt = st.chat_input("Say something")
-if prompt:
-    st.write(f"User has sent the following prompt: {prompt}")
+
+
