@@ -33,7 +33,7 @@ display_calendar(selected_year, list(calendar.month_name).index(selected_month))
 
 #build chatgpt app
 
-pip install openai streamlit
+
 
 #test
 
