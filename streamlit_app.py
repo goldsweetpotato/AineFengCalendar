@@ -1,35 +1,22 @@
 import streamlit as st
+from gcsa.event import Event
+from gcsa.google_calendar import GoogleCalendar
+from gcsa.recurrence import Recurrence, DAILY, SU, SA
 
-st.title("Calendar")
-st.write(
-    "Have a question about coding? Book time with Feng and Aine!")
+from beautiful_date import Jan, Apr, Sept
+import json
+from gcsa.event import Event
+from gcsa.google_calendar import GoogleCalendar
+from gcsa.recurrence import Recurrence, DAILY, SU, SA
+from google.oauth2 import service_account
+from beautiful_date import Jan, Apr, Sept
 
-import calendar
-from datetime import datetime
 
-# Set page title
-st.title("Calendar Viewer")
-
-# Get the current date
-today = datetime.today()
-current_year = today.year
-current_month = today.month
-
-# Function to display a calendar
-def display_calendar(year, month):
-    # Create an instance of TextCalendar class
-    cal = calendar.TextCalendar(calendar.SUNDAY)
-    cal_str = cal.formatmonth(year, month)
-    # Display the calendar in the Streamlit app
-    st.text(cal_str)
-
-# Sidebar to select year and month
-st.sidebar.header("Select Year and Month")
-selected_year = st.sidebar.number_input('Year', min_value=1900, max_value=2100, value=current_year)
-selected_month = st.sidebar.selectbox('Month', list(calendar.month_name)[1:], index=current_month - 1)
-
-# Display the calendar for the selected year and month
-display_calendar(selected_year, list(calendar.month_name).index(selected_month))
+# Deviations from documentation:
+# 1- Creating service account and then creating a key for it. (because we the app can't create a server for itself).
+# 2- Adding the service account email to your calendar as a user with event edit permissions (from Settings and Sharing) (because we the app can't create a server for itself).
+# 3- Using service_account.Credentials.from_service_account_info to get the credenntials instead of credentials_path (for security reasons).
+# 4- Putting the JSON in StreamLit secrets and using json.loads rather than uploading the file to github (for security reasons).
 
 googlecalendarsecret= st.secrets['Json']
 
