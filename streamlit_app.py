@@ -34,3 +34,9 @@ c = list(calendar.get_events(calendar_id="mflin@bu.edu"))
 # It erate through the events and show them.
 for event in c:
     st.write(event)
+
+# Prompt
+
+prompt = st.chat_input("Say something")
+if prompt:
+    st.write(f"User has sent the following prompt: {prompt}")
