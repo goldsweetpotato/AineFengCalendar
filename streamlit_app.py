@@ -18,5 +18,10 @@ from beautiful_date import Jan, Apr, Sept
 # 3- Using service_account.Credentials.from_service_account_info to get the credenntials instead of credentials_path (for security reasons).
 # 4- Putting the JSON in StreamLit secrets and using json.loads rather than uploading the file to github (for security reasons).
 
-googlecalendarsecret= st.secrets['FengJson']
+
+# Get the credintials from Secrets.
+credentials = service_account.Credentials.from_service_account_info(
+        json.loads(st.secrets["FengJson"]),
+        scopes=["https://www.googleapis.com/auth/calendar"]
+    )
 
