@@ -25,3 +25,12 @@ credentials = service_account.Credentials.from_service_account_info(
         scopes=["https://www.googleapis.com/auth/calendar"]
     )
 
+# Create the GoogleCalendar.
+calendar = GoogleCalendar(credentials=credentials)
+
+# Get the list of events.
+c = list(calendar.get_events(calendar_id="mflin@bu.edu"))
+
+# It erate through the events and show them.
+for event in c:
+    st.write(event)
