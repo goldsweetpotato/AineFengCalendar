@@ -123,7 +123,7 @@ tools = [list_event_tool, add_event_tool]
 
 
 # Create the LLM
-llm = ChatOpenAI(api_key=st.secrets["OPENAI_API_KEY"], temperature=0.1)
+llm = ChatOpenAI(api_key=st.secrets["MyOpenAIkey"], temperature=0.1)
 
 # Messages used by the chatbot
 prompt = ChatPromptTemplate.from_messages(
