@@ -104,7 +104,7 @@ def add_event(start_date_time, length_hours, event_name):
     event = Event(event_name,
                   start=start,
                   end=end)
-    return calendar.add_event(event, calendar_id="mndhamod@gmail.com")
+    return calendar.add_event(event, calendar_id="mflin@bu.edu")
 
 # Create a Tool object 
 add_event_tool = StructuredTool(
